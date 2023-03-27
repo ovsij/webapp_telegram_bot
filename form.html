@@ -6,24 +6,138 @@
   <!-- ... other scripts -->
 </head>
 <body>
+    <div class="block-tab">
+        <ul id="tabs">
+            <li id="tab1">
+                <a href="#" title="tabs1" onclick="changeTab('tabs1', 'tab1')">
+                    <img src="https://img.icons8.com/fluency-systems-regular/1x/info-squared.png" alt="" style="filter: invert(100%)">
+                </a>
+            </li>
+            <li id="tab2">
+                <a href="#" title="tabs2" onclick="changeTab('tabs2', 'tab2')">
+                    <img src="https://img.icons8.com/sf-black-filled/1x/overview-pages-4.png" alt="" style="filter: invert(100%)">
+                </a>
+            </li>
+            <li id="tab3">
+                <a href="#" title="tabs3" onclick="changeTab('tabs3', 'tab3')">
+                    <img src="https://img.icons8.com/material-sharp/1x/user.png" alt="" style="filter: invert(100%)">
+                </a>
+            </li>
+        </ul>
+        <div id="cont">
+            <div id="tabs1" style="display: block;">
+                <div class="tabs_content">
+                    <p> Бонусная карта даёт возможность получать бонусы Device при каждой покупке .
+                        <br> Бонусная программа действует во всех торговых точках города. Список актуальных торговых точек вы можете увидеть ниже.
+                        <br> Начисление баллов на бонусную карту происходит с момента её активации (оплаты первого чека). 
+                        <br> Основным и обязательным условием участия в программе лояльности является заполнение анкеты Покупателя. При регистрации в программе необходимо заполнить все поля анкеты и подтвердить согласие с условиями программы лояльности.
+                        <br> 1 бонус = 1 рублю.
+                        <br> Бонусы начисляются от покупки каждого товара от 3%.</p>
+                        <ul>
+                            <li>Магазин "Device Market", г. Калининград, ул. Приморское шоссе, 2 ТРЦ "Балтия Молл"</li>
+                            <li>Островок "hoco", г. Калининград, ул. Приморское шоссе, 2 ТРЦ "Балтия Молл"</li>
+                            <li>Островок "hoco", г. Калининград, ул. Театральная, 30 ТРЦ "Европа", 1 этаж</li>
+                            <li>Островок "Baseus", г. Калининград, ул. Театральная, 30 ТРЦ "Европа", 1 этаж</li>
+                            <li>Островок "Device", г. Калининград, ул. Профессора. Баранова, 34, ТЦ "Акрополь", 1 этаж</li>
+                            <li>Сервисный центр "Device Service", г. Калининград, ул. Звёздная 11</li>
+                        </ul>
+                </div>
+            </div>
+            <div id="tabs2" style="display: none;">
+                <div class="tabs_content">
+                    <div class="reg_notification">Ваш бонусный баланс: <span class="bonus_value">0</span>
+                        <br> Ниже отображена ваша история операций
+                    </div>
+                </div>
+            </div>
+            <div id="tabs3" style="display: none;">
+                <div class="form">
+                    <div class="reg_notification">Для использования полного функционала бота необходимо зарегистрироваться</div>
+                    
+                    
+                    <form action="/action_page.php">
+                        <div class="lname">
+                            <label for="lname">Фамилия</label>
+                            <input type="text" id="lname" name="fname">
+                        </div>
+                    
+                      <div class="fname">
+                        <label for="fname">Имя</label>
+                        <input type="text" id="fname" name="lname">
+                      </div>
+                    
+                      <div class="date_of_birth">
+                        <label for="date_of_birth">Дата рождения</label>
+                        <input type="date" id="date_of_birth" name="date_of_birth">
+                      </div>
+                    
+                      <div class="gender">
+                        <label for="gender">Пол</label>
+                        <select type="select" id="gender" name="gender">
+                            <option hidden selected>Выберите свой пол</option>
+                          <option value="male">Мужской</option>
+                          <option value="female">Женский</option>
+                        </select>
+                      </div>
+                    
+                      <div class="email">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email">
+                      </div>
+                    
+                      <div class="submit">
+                        <input id="submit_button" type="submit" value="Регистрация">
+                      </div>
+                    
+                    </form>
+                    </div>
+            </div>
+        </div>
+    </div>
 
-<h2>Для использования полного функционала бота необходимо зарегистрироваться</h2>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    body {background-color: #000; font-family: 'Inter', sans-serif; color:#fff;}
+    .form {width: 80%; margin: auto;}
+    .reg_notification {background-color: #8f8d8d; border-radius: 20px; padding: 8px 12px;width: 100%; text-align: center; font-weight: normal; font-size: 22px; margin-bottom: 24px;}
+    form {display: flex;flex-direction: column; gap: 24px;}
+    form label {color:#8f8d8d; font-size: 14px;}
+    form input {font-size: 18px; color: #fff;}
+    form input:not(#submit_button), form select, form option {background-color: transparent; border: none; border-bottom: 1px solid #8f8d8d; font-size: 18px}
+    form select#gender {background-color: transparent;color: #fff;}
+    form select option {background-color: transparent;color:#000;}
+    input#date_of_birth::-webkit-calendar-picker-indicator {color: rgba(0, 0, 0, 0);opacity: 1;display: block;filter: invert(100%);width: 20px;height: 20px;border-width: thin;} 
+    form > div {display: flex; flex-direction: column; gap: 12px;}
+    form input#submit_button {background-color: #7094AC; border: none; border-radius: 5px;text-transform: uppercase; padding: 8px 20px; width: fit-content; margin: auto; color:#fff;}
+    #tabs {display: flex; align-items: center; gap: 0px; list-style: none; border-bottom: 2px solid #8f8d8d; padding: 0;}
+    #tabs li {height: 100%; border-bottom: 2px solid #8f8d8d; margin-bottom: -2px; padding: 0px 12px;}
+    #tabs li.active {border-bottom: 2px solid #7094AC;}
+    #tabs li a img {width: 30px; height: 30px;}
+</style>
+<script>
+    function changeTab(tabId, activeTab) {
+        // Get all tab content elements
+        var tabContent = document.querySelectorAll('#cont > div');
 
+        // Loop through all tab content elements and hide them
+        for (var i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = 'none';
+        }
 
-<form action="/action_page.php">
-  <label for="fname">Фамилия</label><br>
-  <input type="text" id="fname" name="fname"><br><br>
-  <label for="lname">Имя</label><br>
-  <input type="text" id="lname" name="lname"><br><br>
-  <label for="lname">Дата рождения</label><br>
-  <input type="text" id="lname" name="lname"><br><br>
-  <label for="lname">Пол</label><br>
-  <input type="text" id="lname" name="lname"><br><br>
-  <label for="lname">Email</label><br>
-  <input type="text" id="lname" name="lname"><br><br>
-  <input type="submit" value="Регистрация">
-</form>
+        // Show the selected tab content element
+        document.getElementById(tabId).style.display = 'block';
 
+        // Get all tab link elements
+        var tabLinks = document.querySelectorAll('#tabs li');
 
+        // Loop through all tab link elements and remove the active class
+        for (var i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove('active');
+        }
+
+        // Add the active class to the selected tab link element
+        document.getElementById(activeTab).classList.add('active');
+    }
+</script>
 </body>
 </html>
